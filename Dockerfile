@@ -1,7 +1,13 @@
+FROM node:8.10.0
+WORKDIR .
+RUN npm install -g yarn
+ADD package.json .
+ADD yarn.lock .
+RUN yarn
+
 FROM microsoft/aspnetcore-build:2.0 AS build-env
 WORKDIR .
 
-RUN yarn
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
 RUN dotnet restore
