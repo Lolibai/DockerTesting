@@ -1,8 +1,5 @@
 FROM node:8.10.0
 WORKDIR /var/lib/jenkins/workspace/DockerLearning
-RUN npm install -g yarn
-ADD package.json /var/lib/jenkins/workspace/DockerLearning/package.json
-ADD yarn.lock /var/lib/jenkins/workspace/DockerLearning/yarn.lock
 RUN yarn
 
 FROM microsoft/aspnetcore-build:2.0 AS build-env
