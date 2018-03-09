@@ -1,7 +1,6 @@
 FROM node:8.10.0
 WORKDIR /var/lib/jenkins/workspace/DockerLearning
 COPY package.json ./
-COPY yarn.lock ./
 RUN yarn
 
 FROM microsoft/aspnetcore-build:2.0 AS build-env
