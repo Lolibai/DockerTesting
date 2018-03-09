@@ -4,7 +4,7 @@ COPY package.json ./
 RUN yarn
 
 FROM microsoft/aspnetcore-build:2.0 AS build-env
-WORKDIR /var/lib/jenkins/workspace/DockerLearning
+WORKDIR ./
 
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
@@ -17,5 +17,5 @@ RUN dotnet publish -c Debug -o out
 # Build runtime image
 FROM microsoft/aspnetcore:2.0
 WORKDIR .
-COPY --from=build-env /var/lib/jenkins/workspace/DockerLearning/out .
+COPY --from=build-env ./out .
 ENTRYPOINT ["dotnet", "DockerLearning.dll"]
