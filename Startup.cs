@@ -38,8 +38,8 @@ namespace DockerLearning
             }
             else
             {
-                app.UseDeveloperExceptionPage();
-                // app.UseExceptionHandler("/Home/Error");
+                // app.UseDeveloperExceptionPage();
+                app.UseExceptionHandler("/Home/Error");
             }
 
             app.UseStaticFiles();
