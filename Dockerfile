@@ -20,7 +20,7 @@ RUN apt-get -qq update && apt-get -qqy --no-install-recommends install wget gnup
     git \
     unzip
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x |  bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | -E bash -
 RUN apt-get install -y nodejs
 WORKDIR /var/lib/jenkins/workspace/DockerLearning
 COPY --from=build-env /var/lib/jenkins/workspace/DockerLearning/out ./
