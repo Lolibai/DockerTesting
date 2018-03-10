@@ -17,5 +17,5 @@ RUN dotnet publish -c Release -o out
 # Build runtime image
 FROM microsoft/aspnetcore:2.0
 WORKDIR /var/lib/jenkins/workspace/DockerLearning
-COPY --from=build-env ./out .
+COPY --from=build-env ./out /var/lib/jenkins/workspace/DockerLearning
 ENTRYPOINT ["dotnet", "DockerLearning.dll"]
