@@ -4,7 +4,7 @@ COPY package.json ./
 RUN yarn
 
 FROM microsoft/aspnetcore-build:2.0 AS build-env
-WORKDIR ./
+WORKDIR .
 
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
